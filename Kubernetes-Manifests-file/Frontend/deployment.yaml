@@ -29,6 +29,6 @@ spec:
             - containerPort: 3000
           env:
             - name: REACT_APP_BACKEND_URL
-              value: "http://amanpathakdevops.study/api/tasks"
+              value: "/api/tasks"
             - name: NODE_OPTIONS
               value: "--openssl-legacy-provider"
