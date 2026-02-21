@@ -4,31 +4,26 @@ metadata:
   name: frontend
   namespace: three-tier
   labels:
-    role: frontend
+    app: frontend
     env: demo
-spec: 
+spec:
   replicas: 1
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 25%
   selector:
-    matchLabels: 
-      role: frontend
+    matchLabels:
+      app: frontend
   template:
     metadata:
       labels:
-        role: frontend
-    spec: 
+        app: frontend
+    spec:
       imagePullSecrets:
-      - name: ecr-registry-secret
+        - name: ecr-registry-secret
       containers:
-      - name: frontend
-        image: 097297728395.dkr.ecr.ap-south-1.amazonaws.com/frontend:3
-        imagePullPolicy: Always
-        env:
-          - name: REACT_APP_BACKEND_URL
-            value: "http://amanpathakdevops.study/api/tasks"
-        ports:
-        - containerPort: 3000
+        - name: frontend
+          image: 097297728395.dkr.ecr.ap-south-1.amazonaws.com/frontend:3
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: REACT_APP_BACKEND_URL
+              value: "http://api.three-tier.svc.cluster.local:3500/api/tasks"
