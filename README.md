@@ -138,14 +138,5 @@ All Kubernetes resources are deployed in the \`three-tier\` namespace:
 kubectl create namespace three-tier
 \`\`\`
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ---
-
-**Author**: [pratyush934](https://github.com/pratyush934)
